@@ -1,0 +1,12 @@
+# project management
+
+project-tree () {
+	CLIENT="$1"
+	if [[ -n "$CLIENT" ]]; then
+		tree -L 1 ~/Projects/$CLIENT
+	else
+		tree -L 2 ~/Projects
+	fi
+}
+
+# vim:set ft=sh:

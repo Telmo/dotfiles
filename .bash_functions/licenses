@@ -1,0 +1,26 @@
+# functions for easily creating LICENSE files (from ~/.templates)
+
+licenses () {
+	LICENSE_TEMPLATE_DIR=~/.templates/licenses
+	LICENSE=$1
+	FILENAME=$2
+
+	if [[ -z "$LICENSE" ]]; then
+		echo "available licenses:"
+		ls $LICENSE_TEMPLATE_DIR
+		echo ""
+		echo "to create one, $ licenses NAME [filename]"
+	else
+		if [[ -z "$FILENAME" ]]; then
+			FILENAME=LICENSE
+		fi
+		LICENSE_PATH="$LICENSE_TEMPLATE_DIR/$LICENSE/LICENSE"
+		if [[ ! -f "$LICENSE_PATH" ]]; then
+			echo "License not found: $LICENSE"
+		else
+			cp -v $LICENSE_TEMPLATE_DIR/$LICENSE/* .
+			echo "created $LICENSE license file: $FILENAME"
+			head -1 $FILENAME
+		fi
+	fi
+}

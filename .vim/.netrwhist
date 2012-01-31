@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/home/telmo/MineCraft/World-1.8/plugins/dynmap/markers'
+let g:netrw_dirhist_2='/etc/apache2/sites-enabled'
+let g:netrw_dirhist_3='/home/telmo/TVShows/src'
+let g:netrw_dirhist_4='/home/telmo/TVShows/spec'
+let g:netrw_dirhist_5='/var/www/mc/map/tiles/_markers_'
+let g:netrw_dirhist_6='/home/telmo/MineCraft/1.0/plugins/WorldGuard/worlds/telmox_nether'

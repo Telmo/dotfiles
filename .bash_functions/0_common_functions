@@ -1,0 +1,15 @@
+# common functions - other functions may call these
+#
+# these get loaded before any other bash functions
+
+msg () {
+	echo -e "\e[37m[\e[31m $* \e[37m]"
+}
+prompt_y () {
+	echo -en "\e[34m$*\e[37m [Y/n] "
+}
+prompt_n () {
+	echo -en "\e[34m$*\e[37m [y/N] "
+}
+
+# vim:set ft=sh:

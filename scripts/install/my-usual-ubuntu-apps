@@ -1,0 +1,36 @@
+#! /bin/bash
+
+# just abunchof stuff that i typically install on 
+# all of my desktop installs of ubuntu
+
+# little shortcut function for adding apps to the 
+# list of apps (packages) to install
+apps () {
+  APPS=(${APPS[*]} $*)
+}
+
+apps build-essential 			# for building stuff (gcc, make, etc)
+apps vim vim-ruby vim-python		# vim w. ruby/python bindings
+apps gmrun				# replacement for alt+f2 launcher
+apps sysinfo				# little gui for displaying system info
+apps compizconfig-settings-manager	# advanced compiz settings
+apps simple-ccsm                        # a simpler ccsm
+apps gthumb gcolor2 agave		# graphic / image editing stuff
+apps wine cabextract			# usually use these for running windows apps
+apps git-core git-svn subversion gitk	# programming / source control systems and tools
+apps ruby-full				# the ruby programming language and some ruby tools / libraries
+apps camorama cheese			# webcam apps
+apps linux-headers-`uname -r`		# linux kernel headers ... some things need for compiling
+apps xinetd ia32-libs			# required to compile vmware ... also good to have on 64-bit OS (ia32)
+apps xtightvncviewer			# good vnc viewer that seems to work with OS X's VNC server
+apps tree				# little command line tool i use often for viewing directories
+apps scrot				# for taking screenshots from the command-line
+apps libnotify-bin			# notification popups (like growl)
+apps imagemagick			# has a convert command that i use all the time
+apps gtk-recordmydesktop		# for screencasting
+
+cmd="sudo aptitude install ${APPS[*]}"
+
+sudo aptitude update
+echo $cmd
+$cmd

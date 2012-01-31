@@ -1,0 +1,28 @@
+nvi () {
+	# make a new executable file with the given argument as the shabang,
+	if [[ -z $1 ]] ; then 
+		echo "Usage:"
+		echo "        shabang bash                returns: #! /bin/bash"
+		echo "        shabang ruby script.rb      creates file with: #! /usr/bin/env ruby"
+		echo "        shabang ruby script.rb vi  creates file and opens wiht vi"
+		echo -e "\nexact path will be used if exists in /bin"
+		echo "otherwise, /usr/bin/env $1 will be used"
+		return 0
+	fi
+#	if [[ -f "/bin/$1" ]] ; then
+#		SHABANG="#! /bin/$1"
+#	else
+		SHABANG="#! /usr/bin/env $1"
+#	fi
+	if [[ -z "$2" ]] ; then
+		echo $SHABANG
+	else
+		touch "$2"
+		chmod +x "$2"
+		echo "$SHABANG" >> "$2"
+		echo -e "#\n\n" >> "$2"
+		vim "$2" +3
+	fi
+}
+
+# vim:set ft=sh:
