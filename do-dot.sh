@@ -19,12 +19,11 @@ rm -rf ~/.tmux.conf
 rm -rf ~/.gitconfig
 rm -rf ~/.irbrc
 rm -rf ~/.dircolorsdb
-
-ln -s ~/dotfiles/bashrc ~/.bashrc
-ln -s ~/dotfiles/profile ~/.profile
-ln -s ~/dotfiles/bash_functions ~/.bash_functions
+ln -s ~/dotfiles/bash/bashrc ~/.bashrc
+ln -s ~/dotfiles/bash/profile ~/.profile
+ln -s ~/dotfiles/bash/bash_functions ~/.bash_functions
 ln -s ~/dotfiles/screenrc ~/.screenrc
 ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
 ln -s ~/dotfiles/gitconfig ~/.gitconfig
 ln -s ~/dotfiles/irbrc ~/.irbrc
-ln -s ~/dotfiles/dircolorsdb ~/.dircolorsdb
+ln -s ~/dotfiles/bash/dircolorsdb ~/.dircolorsdb

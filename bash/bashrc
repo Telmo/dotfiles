@@ -33,7 +33,7 @@ export PROMPT_COMMAND
 
 
 alias vi="vim"
-alias ls="gls --color=auto"
+#alias ls="gls --color=auto"
 #export CLICOLOR=1
 # Set the colors of LS to solarized
 eval `dircolors ~/.dircolorsdb`
