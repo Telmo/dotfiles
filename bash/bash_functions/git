@@ -1,0 +1,113 @@
+# git-related functions in here
+
+#
+# Will return the current branch name
+# Usage example: git pull origin $(current_branch)
+#
+function current_branch() {
+	ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+		echo ${ref#refs/heads/}
+}
+
+git_branch () {
+	GIT_BRANCH="$(git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')"
+		if [[ -n "$GIT_BRANCH" ]] ; then
+			echo ":$GIT_BRANCH "
+				fi
+}
+empty_branch () {
+	name="$1"
+		if [[ -n "$name" ]] ; then
+			echo "This will create a new empty branch in the current"
+				echo -n "git repository called '${name}' ... Continue? [y/N] "
+				read VERIFY
+				if [[ "$VERIFY" = "Y" || "$VERIFY" = "y" ]]; then
+					echo "creating branch '$name'"
+						git symbolic-ref HEAD refs/heads/$name
+						rm .git/index
+						git clean -fdx
+						echo "you should be on your new empty branch! "
+						echo "add/commit files as usual! "
+						echo "( your new branch will show up after you commit something to it )"
+				else
+					echo -n ""
+						fi
+		else
+			echo "Creates a new empty branch in your git repository."
+				echo ""
+				echo "Usage: empty_branch [name_of_new_branch]"
+				fi
+}
+
+function git_prompt_info() {
+	ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+	#	echo "$GIT_PROMPT_PREFIX${ref#refs/heads/}$(parse_git_dirty)%{$fg_bold[red]%} ($(git_prompt_status)%{$fg_bold[red]%})$GIT_PROMPT_SUFFIX"
+		echo "$GIT_PROMPT_PREFIX\[\033[38;5;226m\]${ref#refs/heads/}$(parse_git_dirty) $(git_prompt_status)$GIT_PROMPT_SUFFIX"
+}
+
+parse_git_dirty () {
+	if [[ -n $(git status -s 2> /dev/null) ]]; then
+		echo "$GIT_PROMPT_DIRTY"
+	else
+		echo "$GIT_PROMPT_CLEAN"
+			fi
+}
+
+git_prompt_status() {
+	INDEX=$(git status --porcelain 2> /dev/null)
+	STATUS=""
+	if $(echo "$INDEX" | grep '^?? ' &> /dev/null); then
+		STATUS="$GIT_PROMPT_UNTRACKED$STATUS"
+	fi
+	if $(echo "$INDEX" | grep '^A  ' &> /dev/null); then
+		STATUS="$GIT_PROMPT_ADDED$STATUS"
+	elif $(echo "$INDEX" | grep '^M  ' &> /dev/null); then
+		STATUS="$GIT_PROMPT_ADDED$STATUS"
+	fi
+	if $(echo "$INDEX" | grep '^ M ' &> /dev/null); then
+		STATUS="$GIT_PROMPT_MODIFIED$STATUS"
+	elif $(echo "$INDEX" | grep '^AM ' &> /dev/null); then
+		STATUS="$GIT_PROMPT_MODIFIED$STATUS"
+	elif $(echo "$INDEX" | grep '^ T ' &> /dev/null); then
+		STATUS="$GIT_PROMPT_MODIFIED$STATUS"
+	fi
+	if $(echo "$INDEX" | grep '^R  ' &> /dev/null); then
+		STATUS="$GIT_PROMPT_RENAMED$STATUS"
+	fi
+	if $(echo "$INDEX" | grep '^ D ' &> /dev/null); then
+		STATUS="$GIT_PROMPT_DELETED$STATUS"
+	fi
+	if $(echo "$INDEX" | grep '^UU ' &> /dev/null); then
+		STATUS="$GIT_PROMPT_UNMERGED$STATUS"
+	fi
+	echo $STATUS
+}
+
+# Aliases
+alias g='git'
+# #alias gst='git status'
+alias gst="gst_tmp=\$(git status | grep Untracked -A 0 -B 999 | grep -v Untracked); if [[ -n \"\$gst_tmp\" ]] ; then echo \"\$gst_tmp\" ; else git status ; fi" 
+alias gl='git pull'
+alias gup='git fetch && git rebase'
+alias gp='git push'
+alias gd='git diff | mate'
+alias gdv='git diff -w "$@" | vim -R -'
+alias gc='git commit -v'
+alias gca='git commit -v -a'
+alias gco='git checkout'
+alias gb='git branch'
+alias gba='git branch -a'
+alias gcount='git shortlog -sn'
+alias gcp='git cherry-pick'
+alias glg='git log --stat --max-count=5'
+alias glog='echo -e "`git log --pretty=format:"[\e[34m%ar\e[37m](\e[31m%an\e[37m)%n%s%n"`"'
+
+# Git and svn mix
+alias git-svn-dcommit-push='git svn dcommit && git push github master:svntrunk'
+
+# these aliases take advantage of the previous function
+alias ggpull='git pull origin $(current_branch)'
+alias ggpush='git push origin $(current_branch)'
+alias ggpnp='git pull origin $(current_branch) && git push origin $(current_branch)'
+
+# vim:set ft=sh:

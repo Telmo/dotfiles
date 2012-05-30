@@ -1,0 +1,43 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# User specific aliases and functions
+export http_proxy=http://68.87.102.6:9999
+export https_proxy=http://68.87.102.6:9999
+export no_proxy=172.27.0.0,0.0.0.0,comcast.net,comcast.com,68.87.102.6
+#export PATH=/app/interpreters/ruby/1.9.3/bin/:$PATH:/sbin:/usr/sbin:/usr/local/sbin/
+export PATH=/Users/rmoral00/.rbenv/shims:/Users/rmoral00/.rbenv/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
+export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+export GIT_SSL_NO_VERIFY=true
+
+# if .bash_functions if a file then source it
+# if .bash_functions is a directory, then sourec all its files
+if [ -f ~/.bash_functions ]; then
+	. ~/.bash_functions
+fi
+if [ -d ~/.bash_functions ]; then
+	for function in ~/.bash_functions/*; do . $function; done
+fi
+
+## bash prompt
+prompt () {
+    PS1="\[\033[1;34m\]⋯᚜\[\033[36m\] \w\[\033[1;34m\] ᚛⋯\[\033[0m\] $(git_prompt_info)\n \[\033[38;5;208m\]\u\[\033[1;37m\]@\[\033[38;5;039m\]\h\[\033[0m\] \[\033[1;32m\]❯\[\033[0m\] "
+}
+PROMPT_COMMAND=prompt
+
+export PROMPT_COMMAND
+
+
+alias vi="vim"
+alias ls="gls --color=auto"
+#export CLICOLOR=1
+# Set the colors of LS to solarized
+eval `gdircolors ~/.dircolorsdb`
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
