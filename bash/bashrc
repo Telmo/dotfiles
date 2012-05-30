@@ -6,12 +6,12 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # User specific aliases and functions
-export http_proxy=http://68.87.102.6:9999
-export https_proxy=http://68.87.102.6:9999
-export no_proxy=172.27.0.0,0.0.0.0,comcast.net,comcast.com,68.87.102.6
+#export http_proxy=http://68.87.102.6:9999
+#export https_proxy=http://68.87.102.6:9999
+#export no_proxy=172.27.0.0,0.0.0.0,comcast.net,comcast.com,68.87.102.6
 #export PATH=/app/interpreters/ruby/1.9.3/bin/:$PATH:/sbin:/usr/sbin:/usr/local/sbin/
-export PATH=/Users/rmoral00/.rbenv/shims:/Users/rmoral00/.rbenv/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
-export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+#export PATH=/Users/rmoral00/.rbenv/shims:/Users/rmoral00/.rbenv/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
+#export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 export GIT_SSL_NO_VERIFY=true
 
 # if .bash_functions if a file then source it
@@ -36,8 +36,8 @@ alias vi="vim"
 alias ls="gls --color=auto"
 #export CLICOLOR=1
 # Set the colors of LS to solarized
-eval `gdircolors ~/.dircolorsdb`
+eval `dircolors ~/.dircolorsdb`
 
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+#export PATH="$HOME/.rbenv/bin:$PATH"
+#eval "$(rbenv init -)"
 
