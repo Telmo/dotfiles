@@ -33,11 +33,11 @@ export PROMPT_COMMAND
 
 
 alias vi="vim"
-alias ls="ls --color"
-#export CLICOLOR=1
+alias ls="gls --color"
+export CLICOLOR=1
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
 # Set the colors of LS to solarized
-eval `dircolors ~/.dircolorsdb`
-
-#export PATH="$HOME/.rbenv/bin:$PATH"
-#eval "$(rbenv init -)"
-
+eval `gdircolors ~/.dircolorsdb`
