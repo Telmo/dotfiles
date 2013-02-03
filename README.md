@@ -1,6 +1,6 @@
-## There's no place like ~/
+## I miss $HOME Mr Frodo - Samwise Gamgee
 
-These are my personal [dotfiles][]. They have been gathered from different places and they fit my workflow.
+These are my personal dotfiles. They have been gathered from different places around the internet and they have been tweaked to fit my workflow.
 
 If you're new to dotfiles, this probably isn't the best starter repository for you.
 
@@ -8,9 +8,11 @@ If you're new to dotfiles, this probably isn't the best starter repository for y
 
 If you're crazy and want to clone my dots anyway:
 
-- `git clone https://github.com/telmo/dotfiles.git ~/.dotfiles`
-- `cd ~/.dotfiles`
-- `script/bootstrap`
+```
+git clone https://github.com/telmo/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles
+script/bootstrap
+```
 
 The install script will symlink the appropriate files in `.dotfiles` to your
 home directory. Everything is configured and tweaked within `~/.dotfiles`,
@@ -31,9 +33,9 @@ There's a few special files in the hierarchy.
 
 In the ~/.dotfiles/scripts directories are a couple script to help you along with OSX.
 
-- ruby_vim_install.sh: It uses rbenv and brew to install a patched version of ruby 1.9.3, for some reason vim needs this patch to load modules or it crashes.
-- 1.9.3-p327-patch: this is the patch used by ruby_vim_install.sh to compile ruby.
-- osx-stuff.sh: Tweaks to OSX, it enables/disables certain things that drive me nuts
+- **ruby\_vim\_install.sh**: It uses rbenv and brew to install a patched version of ruby 1.9.3, for some reason vim needs this patch to load modules or it crashes.
+- **1.9.3-p327-patch**: this is the patch used by ruby_vim_install.sh to compile ruby.
+- **osx-stuff.sh**: Tweaks to OSX, it enables/disables certain things that drive me nuts
 
 ## Prior art ##
 
