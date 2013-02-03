@@ -1,0 +1,4 @@
+domain=`hostname -f |awk 'BEGIN{FS="."} {print $(NF-1)}'`
+if [ $domain == "comcast" ]; then
+	export PATH=/app/interpreters/ruby/1.9.3/bin:$PATH
+fi

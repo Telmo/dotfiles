@@ -1,6 +1,6 @@
 nvi () {
 	# make a new executable file with the given argument as the nvi,
-		SHABANG="#!/opt/comcast/platform/ruby/1.9/bin/ruby -wKU\n# -*- encoding: utf-8 -*-"
+		SHABANG="#!/usr/bin/env ruby\n# -*- encoding: utf-8 -*-"
 		touch "$1"
 		chmod +x "$1"
 		echo -e "$SHABANG" >> "$1"

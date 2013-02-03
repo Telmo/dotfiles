@@ -101,6 +101,8 @@ alias gcount='git shortlog -sn'
 alias gcp='git cherry-pick'
 alias glg='git log --stat --max-count=5'
 alias glog='echo -e "`git log --pretty=format:"[\e[34m%ar\e[37m](\e[31m%an\e[37m)%n%s%n"`"'
+alias gdiff='git diff --color'
+alias gpush='git push origin master'
 
 # Git and svn mix
 alias git-svn-dcommit-push='git svn dcommit && git push github master:svntrunk'
@@ -109,5 +111,7 @@ alias git-svn-dcommit-push='git svn dcommit && git push github master:svntrunk'
 alias ggpull='git pull origin $(current_branch)'
 alias ggpush='git push origin $(current_branch)'
 alias ggpnp='git pull origin $(current_branch) && git push origin $(current_branch)'
+
+
 
 # vim:set ft=sh:

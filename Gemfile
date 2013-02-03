@@ -1,6 +1,6 @@
 source "http://rubygems.org"
 gem "rspec"
 gem "simplecov"
-gem "wirble"
-gem "hirb"
 gem "pry"
+gem "pry-nav"
+gem "awesome_print"

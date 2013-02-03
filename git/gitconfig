@@ -1,0 +1,64 @@
+[user]
+	name = Telmo
+	email = telmox@gmail.com
+[color]
+	branch = auto
+	diff = auto
+	status = auto
+[color "branch"]
+	current = red bold
+	local = yellow
+	remote = green
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+[merge]
+	tool = opendiff
+[core]
+	legacyheaders = false
+[repack]
+	usedeltabaseoffset = true
+[format]
+	  pretty = %Cblue%h%Creset %Cgreen[%cr]%Creset (%an) %s
+[alias]
+	ci = commit
+	co = checkout
+	st = status
+	ch = cherry -v origin
+	hub = push origin master
+	b = branch -v
+	cm  = commit -am
+	last = diff HEAD^ # diff last committed change
+	graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+	r = remote -v                     # show remotes (verbose)
+	unstage = reset HEAD              # remove files from index (tracking)
+	uncommit = reset --soft HEAD^     # go back before last commit, with files in uncommitted state
+	filelog = log -u                  # show changes to a file
+	# stash
+	ss = stash                        # stash changes
+	sl = stash list                   # list stashes
+	sa = stash apply                  # apply stash (restore changes)
+	sd = stash drop                   # drop stashes (destory changes)
+	t = tag -n 10					  # Show tags with 10 messages per tag
+[push]
+	default = tracking
+[github]
+	user = Telmo
+[diff "ruby"]
+	funcname = ^ *\\(\\(class\\|module\\|def\\) .*\\)
+[core]
+	pager = most +s +'/---'
+	excludesfile = ~/.gitignore
+	editor = vim
+[rerere]
+    # Remember my merges
+    # http://gitfu.wordpress.com/2008/04/20/git-rerere-rereremember-what-you-did-last-time/
+	enabled = 1
+[branch]
+	autosetupmerge = true
