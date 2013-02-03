@@ -37,6 +37,12 @@ In the ~/.dotfiles/scripts directories are a couple script to help you along wit
 - **1.9.3-p327-patch**: this is the patch used by ruby_vim_install.sh to compile ruby.
 - **osx-stuff.sh**: Tweaks to OSX, it enables/disables certain things that drive me nuts
 
+## How come you don't have vim stuff?!
+
+Oh.. but I do! I prefer to manage those in a separate repo:
+
+[Telmo's vim config](https://github.com/Telmo/dotvim)
+
 ## Prior art ##
 
 * [Wynn Netherland](https://github.com/pengwynn/dotfiles)

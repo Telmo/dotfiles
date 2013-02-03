@@ -2,3 +2,4 @@
 .bash_logout
 .bash_history
 .viminfo.tmp
+.DS_Store
