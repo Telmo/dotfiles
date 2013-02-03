@@ -34,3 +34,13 @@ export CLICOLOR=1
 
 # Set the colors of LS to solarized
 #eval `gdircolors ~/.dircolorsdb`
+
+
+case `uname` in
+	"Darwin" )
+		. ~/.bash_osx
+	"Linux" )
+		. ~/.bash_linux
+	* )
+		;;
+esac

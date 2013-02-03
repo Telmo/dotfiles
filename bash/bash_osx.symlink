@@ -1,0 +1,25 @@
+# .bash_osx
+# Load environmental variables that are specific for OSX.
+
+if [ -d ~/.dotfiles/bin/osx/ ]; then
+	export PATH=$PATH:/~/.dotfiles/bin/osx/
+fi
+
+alias vi="vim"
+alias ls="gls --color"
+export CLICOLOR=1
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
+# Bash complete from "brew install bash-completion
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
+
+# Set the colors of LS to solarized
+if [ -e ~/.dircolorsdb ]; then
+	eval `gdircolors ~/.dircolorsdb`
+fi
+
+export PATH=$PATH:~/.dotfiles/bin/osx-bin

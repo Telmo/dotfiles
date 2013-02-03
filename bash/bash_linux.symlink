@@ -1,0 +1,15 @@
+# .bash_linux
+# Load environmental variables that are specific for OSX.
+
+if [ -d ~/.dotfiles/bin/linux-bin/ ]; then
+	export PATH=$PATH:/~/.dotfiles/bin/linux-bin/
+fi
+
+# Set the colors of LS to solarized
+if [ -e ~/.dircolorsdb ]; then
+	eval `dircolors ~/.dircolorsdb`
+fi
+
+if [ -f /etc/bash_completion ]; then                                                                                                                                                                  
+    . /etc/bash_completion
+fi
