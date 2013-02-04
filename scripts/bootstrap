@@ -51,6 +51,7 @@ install_dotfiles () {
   for source in `find $DOTFILES_ROOT -maxdepth 2 -name \*.symlink`
   do
     dest="$HOME/.`basename \"${source%.*}\"`"
+	dest_file=`echo $dest|awk 'BEGIN{FS="/"} {print $(NF)}'`
 
     if [ -f $dest ] || [ -d $dest ]
     then
@@ -90,7 +91,7 @@ install_dotfiles () {
 
       if [ "$backup" == "true" ] || [ "$backup_all" == "true" ]
       then
-        mv $dest $BACKUP_DIR/$dest
+        mv $dest $BACKUP_DIR/$dest_file
         success "moved $dest to $BACKUP_DIR/$dest"
       fi
 
@@ -108,8 +109,8 @@ install_dotfiles () {
   done
 }
 
-install_dotfiles
 create_backup_dir
+install_dotfiles
 
 # If we are on a mac, lets install and setup homebrew
 if [ "$(uname -s)" == "Darwin" ]
