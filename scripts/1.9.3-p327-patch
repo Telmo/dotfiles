@@ -2,7 +2,7 @@ build_package_combined_patch() {
   local package_name=""
 
   {
-    curl https://raw.github.com/gist/3905045/bf9d1c84c72cdce5be52d8b2dfd4d86a1cdbf185/gistfile1.txt | git apply
+    curl -k https://raw.github.com/gist/3905045/bf9d1c84c72cdce5be52d8b2dfd4d86a1cdbf185/gistfile1.txt | git apply
     autoconf
     ./configure --prefix="$PREFIX_PATH" $CONFIGURE_OPTS --enable-shared
     make -j 8
@@ -13,5 +13,5 @@ build_package_combined_patch() {
 
 require_gcc
 
-#install_package "yaml-0.1.4" "http://pyyaml.org/download/libyaml/yaml-0.1.4.tar.gz"
+install_package "yaml-0.1.4" "http://pyyaml.org/download/libyaml/yaml-0.1.4.tar.gz"
 install_package "ruby-1.9.3-p327" "http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p327.tar.gz" combined_patch

@@ -39,8 +39,10 @@ export CLICOLOR=1
 case `uname` in
 	"Darwin" )
 		. ~/.bash_osx
+		;;
 	"Linux" )
 		. ~/.bash_linux
+		;;
 	* )
 		;;
 esac
