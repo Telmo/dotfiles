@@ -9,7 +9,7 @@ If you're new to dotfiles, this probably isn't the best starter repository for y
 If you're crazy and want to clone my dots anyway:
 
 ```
-git clone https://github.com/telmo/dotfiles.git ~/.dotfiles
+git clone https://github.com/Telmo/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 script/bootstrap
 ```

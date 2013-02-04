@@ -1,0 +1,44 @@
+#!/usr/bin/env ruby
+#
+#Time.at(1340635693).strftime("%a %b %e %Y")
+
+require 'pp'
+
+def get_tags
+  tags_string = `git tag`
+  tags = tags_string.split("\n").sort! { |a,b| a.split('.').map(&:to_i) <=> b.split('.').map(&:to_i) }.reverse
+
+  changelog = ""
+
+  tags.each do |current|
+    message = `git verify-tag -v #{current}`.split("\n")
+    message.delete_if { |x| x.empty? }
+    # ["object 3f77553b21f16dec82de00aff542d8e112fe7043",
+    # "type commit",
+    # "tag 2.1.2",
+    # "tagger Wes Gurney <wes_gurney@cable.comcast.com> 1345647057 -0400",
+    # "Fixed bug with giving false positives on connectivity results"]
+
+    commit_hash = message[0].split.last
+    tag = message[2].split.last
+    time = Time.at(message[3].split[-2..-1].join(" ").to_i).strftime("%a %b %e %Y")
+    user = message[3].split[1..2].join(" ")
+    commit_message = message[4..-1].map {|x| x = " - #{x}" }.join("\n")
+
+    changelog << "### Version: #{tag} (#{time})\n"
+    changelog << " - commit id: #{commit_hash}\n"
+    changelog << commit_message
+    changelog << "\n\n"
+  end
+  changelog
+end
+
+File.open("Changelog.yard", "w") { |f|
+  f.write get_tags
+}
+
+
+# ### Version 0.0.1 (Mon Jun 25 2012)
+# - Initial Release
+
+
