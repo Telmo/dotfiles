@@ -53,7 +53,7 @@
 [diff "ruby"]
 	funcname = ^ *\\(\\(class\\|module\\|def\\) .*\\)
 [core]
-	pager = most +s +'/---'
+#	pager = most +s +'/---'
 	excludesfile = ~/.gitignore
 	editor = vim
 [rerere]
