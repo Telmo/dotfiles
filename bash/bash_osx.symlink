@@ -23,3 +23,6 @@ if [ -e ~/.dircolorsdb ]; then
 fi
 
 export PATH=$PATH:~/.dotfiles/bin/osx-bin
+export GOVERSION="1.2"
+export GOROOT=$(brew --prefix)/Cellar/go/$GOVERSION
+export GOPATH=$(brew --prefix)/Cellar/go/$GOVERSION/bin

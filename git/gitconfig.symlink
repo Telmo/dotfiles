@@ -1,3 +1,5 @@
+[init]
+	templatedir = ~/.git_template/base
 [user]
 	name = Telmo
 	email = telmox@gmail.com
@@ -22,10 +24,12 @@
 	tool = opendiff
 [core]
 	legacyheaders = false
+	excludesfile = ~/.gitignore
+	autocrlf = input
 [repack]
 	usedeltabaseoffset = true
 [format]
-	  pretty = %Cblue%h%Creset %Cgreen[%cr]%Creset (%an) %s
+	pretty = %Cblue%h%Creset %Cgreen[%cr]%Creset (%an) %s
 [alias]
 	ci = commit
 	co = checkout
@@ -40,12 +44,24 @@
 	unstage = reset HEAD              # remove files from index (tracking)
 	uncommit = reset --soft HEAD^     # go back before last commit, with files in uncommitted state
 	filelog = log -u                  # show changes to a file
+	ctags = "!sh -c '[ -f .git/hooks/ctags ] || git init; .git/hooks/ctags' git-ctags"
+	puppetize = "!sh -c '[ -f ~/.git_template/puppet/ ] || cp -r ~/.git_template/puppet/* .git/hooks/'"
+	up = !git fetch origin && git rebase origin/master
+	delete-branch = !sh -c 'git push origin :refs/heads/$1 && git branch -D $1' -
+	create-branch = !sh -c 'git push origin HEAD:refs/heads/$1 && git fetch origin && git branch --track $1 origin/$1 && cd . && git checkout $1' -
+  unpushed = log --stat origin/master..HEAD
+	gg = grep --break --heading -n
+  cl = log --graph --pretty=format:"%an: %s%C(yellow)%d%Creset %Cgreen(%cr)%Creset" --date=relative
+  cls = log --pretty=format:"%an (%ae): %C(yellow)%s%Creset" --shortstat
+	sc = clone --depth=1
+  fc = commit --amend -m
+  fo = log --pretty=oneline --shortstat --abbrev-commit
+	t = tag -n 10					            # Show tags with 10 messages per tag
 	# stash
 	ss = stash                        # stash changes
 	sl = stash list                   # list stashes
 	sa = stash apply                  # apply stash (restore changes)
 	sd = stash drop                   # drop stashes (destory changes)
-	t = tag -n 10					  # Show tags with 10 messages per tag
 [push]
 	default = tracking
 [github]
@@ -57,8 +73,12 @@
 	excludesfile = ~/.gitignore
 	editor = vim
 [rerere]
-    # Remember my merges
-    # http://gitfu.wordpress.com/2008/04/20/git-rerere-rereremember-what-you-did-last-time/
+		# Remember my merges
+		# http://gitfu.wordpress.com/2008/04/20/git-rerere-rereremember-what-you-did-last-time/
 	enabled = 1
 [branch]
 	autosetupmerge = true
+[fetch]
+	prune = true
+[commit]
+	template = ~/.gitmessage

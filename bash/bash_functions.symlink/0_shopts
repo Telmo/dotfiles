@@ -1,5 +1,5 @@
 # If you type foo, and it isn't a command, and it is a directory in your cdpath, go there
-shopt -s autocd
+#shopt -s autocd
 
 # If set, the pattern ‘**’ used in a filename expansion context will match a files and 
 # zero or more directories and subdirectories. If the pattern is followed by a ‘/’, 
@@ -18,10 +18,10 @@ shopt -s interactive_comments
 shopt -s checkwinsize
 
 # If this is set, an argument to the cd builtin command that is not a directory is assumed to be the name of a variable whose value is the directory to change to.
-shopt -s cdable_vars
+#shopt -s cdable_vars
 
 # If set, Bash attempts spelling correction on directory names during word completion if the directory name initially supplied does not exist.
-shopt -s dirspell
+#shopt -s dirspell
 
 # If set, Bash includes filenames beginning with a ‘.’ in the results of filename expansion.
 shopt -s dotglob
