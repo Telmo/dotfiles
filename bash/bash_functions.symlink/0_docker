@@ -1,0 +1,16 @@
+#export DOCKER_TLS_VERIFY=1
+#export DOCKER_HOST=tcp://192.168.59.103:2376
+#export DOCKER_CERT_PATH=/Users/rmoral00/.boot2docker/certs/boot2docker-vm
+#export ETCDCTL_CA_FILE=~/ssl/ca.crt
+#export ETCDCTL_KEY_FILE=~/ssl/confd.key.insecure
+#export ETCDCTL_CERT_FILE=~/ssl/confd.crt
+#export ETCDCTL_PEERS=https://cdaetcd-ch2-1p.sys.comcast.net:2379
+
+#alias runruby="docker run --rm -ti -v `pwd`:/src --name ruby-test atlas-registry.sys.comcast.net/baseimages/ruby-base:latest bash"
+#alias ddev="eval $(docker-machine env dev)"
+
+#eval $(docker-machine env dev)
+
+#function dmv {
+#docker-machine $1 dev
+#}

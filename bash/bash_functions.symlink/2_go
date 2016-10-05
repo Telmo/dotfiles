@@ -1,0 +1,5 @@
+export GOVERSION=1.6
+export GOPATH=/Users/rmoral00/Development/
+export GOTOOLDIR=/usr/local/Cellar/go/$GOVERSION/libexec/pkg/tool/darwin_amd64
+export GOROOT=/usr/local/Cellar/go/$GOVERSION/libexec
+export PATH=$PATH:/Users/rmoral00/Development/bin
