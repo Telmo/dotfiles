@@ -1,9 +1,13 @@
 # Colorize output, add file type indicator, and put sizes in human readable format
-alias ls='ls -GFh --color'
+alias ls='ls -GFh'
 # Same as above, but in long listing format
-alias ll='ls -GFhl --color'
+alias ll='ls -GFhl'
 # Make RI output pretty
 alias ri='ri -Tf ansi'
 alias ..='cd ..'
-alias dev="cd ~/Work/Development/"
+alias dev="cd ~/Development/"
 alias dp="cd ~/Work/Puppet/"
+alias gh="cd ~/Development/src/github.com"
+alias ghe="cd ~/Development/src/github.comcast.com"
+alias glab="cd ~/Development/src/autogit.sys.comcast.net"
+alias PT="cd ~/Development/src/github.comcast.com/PT-CloudServices"

@@ -28,6 +28,7 @@ PROMPT_COMMAND=prompt
 
 export PROMPT_COMMAND
 
+export DYLD_FORCE_FLAT_NAMESPACE=1
 
 alias vi="vim"
 export CLICOLOR=1
@@ -46,5 +47,3 @@ case `uname` in
 	* )
 		;;
 esac
-
-alias coreos="cd ~/Work/CoreOS/coreos-vagrant && vagrant ssh"

@@ -9,9 +9,6 @@ alias vi="vim"
 alias ls="gls --color"
 export CLICOLOR=1
 
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-
 # Bash complete from "brew install bash-completion
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
@@ -23,6 +20,6 @@ if [ -e ~/.dircolorsdb ]; then
 fi
 
 export PATH=$PATH:~/.dotfiles/bin/osx-bin
-export GOVERSION="1.2"
-export GOROOT=$(brew --prefix)/Cellar/go/$GOVERSION
-export GOPATH=$(brew --prefix)/Cellar/go/$GOVERSION/bin
+#export GOVERSION="1.2"
+#export GOROOT=$(brew --prefix)/Cellar/go/$GOVERSION
+#export GOPATH=$(brew --prefix)/Cellar/go/$GOVERSION/bin
